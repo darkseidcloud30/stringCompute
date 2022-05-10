@@ -1,0 +1,15 @@
+# localhost:8000/api/similarity
+# request body
+# {
+#     "entry1" : "cat",
+#     "entry2" : "dog"
+# }
+
+
+
+# localhost:8000/api/stringToVec
+# request body
+# {
+#
+#     "document" : "dog"
+# }

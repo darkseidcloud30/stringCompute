@@ -139,8 +139,6 @@ def convertToVector(word ,theModel):
             a=0
     return xvec
 
-    
-
 def cosine(xvec, yvec,theModel):
     # stopWords = stopwords.words('english')  
     # tokenizer = RegexpTokenizer(r'\w+')
