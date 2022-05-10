@@ -117,14 +117,11 @@ def stringToVec(request, format=None):
    
         # corpus={'entry1':request.query_params["entry1"],'entry2': request.query_params["entry2"]}
 
-        a = converted
-        print(a.shape)
-        json_dump = json.dumps({'converted': converted}, 
-                       cls=NumpyEncoder)
+     
 
 
         body = {'document':body['document']
-        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': json_dump}
+        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': json.dumps(converted.toList())}
 
         # stringComputeApi=body
         
