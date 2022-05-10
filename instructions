@@ -1,0 +1,24 @@
+Windows: 
+    download latest python if not available
+
+    python get-pip.py 
+    
+    https://aka.ms/vs/16/release/vs_buildtools.exe{
+    -- only check c++ build tools
+    }
+
+    pip install django
+    
+    pip install djangorestframework
+    pip install scipy
+    pip uninstall numpy
+    pip install numpy==1.19.3
+    pip install nltk
+    pip install -U gensim
+
+     http://nlp.stanford.edu/data/glove.840B.300d.zip{
+        --download model extract to 
+        C:\Users\{USER}\AppData\Local\Programs\Python\Python39\Lib\site-packages\gensim\test\test_data
+    }
+
+    python manage.py runserver

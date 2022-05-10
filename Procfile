@@ -1,0 +1,1 @@
+web: gunicorn stringComputeApi.wsgi --timeout=700
