@@ -23,6 +23,12 @@ start_time = time.time()
 
 print("\nLoading Model...\n")
 
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
+
 try: 
     glove_file = datapath('glove.840B.300d.txt')
     tmp_file = get_tmpfile("word2vec.txt")
@@ -111,8 +117,14 @@ def stringToVec(request, format=None):
    
         # corpus={'entry1':request.query_params["entry1"],'entry2': request.query_params["entry2"]}
 
+        a = converted
+        print(a.shape)
+        json_dump = json.dumps({'converted': converted}, 
+                       cls=NumpyEncoder)
+
+
         body = {'document':body['document']
-        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': converted}
+        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': json_dump}
 
         # stringComputeApi=body
         
