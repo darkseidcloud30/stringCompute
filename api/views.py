@@ -83,7 +83,7 @@ def similarity(request, format=None):
 
         # corpus={'entry1':request.query_params["entry1"],'entry2': request.query_params["entry2"]}
 
-        body = {'corpus':corpus,'similarityRate': simRate,'simrate2':simRate
+        body = {'corpus':body,'similarityRate': simRate,'simrate2':simRate
         ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK'}
 
         # stringComputeApi=body
