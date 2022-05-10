@@ -121,14 +121,14 @@ def stringToVec(request, format=None):
 
 
         body = {'document':body['document']
-        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': converted}
+        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': converted.tolist()}
 
         # stringComputeApi=body
         
         stringComputeApi=body
     
      
-        print("\n"+json.dumps(stringComputeApi),"\n")
+        # print("\n"+json.dumps(stringComputeApi),"\n")
 
         return JsonResponse(stringComputeApi)
     else:   
@@ -150,7 +150,7 @@ def convertToVector(word ,theModel):
     
     return np.mean(xvec,axis=0)
 
-def cosine(xvec, yvec,theModel):
+def cosine(meanx, meany,theModel):
     # stopWords = stopwords.words('english')  
     # tokenizer = RegexpTokenizer(r'\w+')
     # token1=tokenizer.tokenize(s1)
@@ -176,8 +176,8 @@ def cosine(xvec, yvec,theModel):
     #         a=0
 
         
-    meanx=np.mean(xvec,axis=0)
-    meany=np.mean(yvec,axis=0)
+    # meanx=np.mean(xvec,axis=0)
+    # meany=np.mean(yvec,axis=0)
 
 
     t=0
