@@ -121,7 +121,7 @@ def stringToVec(request, format=None):
 
 
         body = {'document':body['document']
-        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': json.dumps(converted.toList())}
+        ,'fetchTime':fetch+"s",'status':status.HTTP_200_OK,'description':'HTTP_200_OK','vectors': converted}
 
         # stringComputeApi=body
         
@@ -146,7 +146,9 @@ def convertToVector(word ,theModel):
             xvec.append(theModel[xw])
         except:
             a=0
-    return xvec
+
+    
+    return np.mean(xvec,axis=0)
 
 def cosine(xvec, yvec,theModel):
     # stopWords = stopwords.words('english')  
